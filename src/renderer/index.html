@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Auto-Poster</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-content">
+        <h1>📹 Social Media Auto-Poster</h1>
+        <p>Post your short videos to all platforms at once</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Platform Connections Section -->
+      <section class="section connections-section">
+        <h2>🔐 Platform Connections</h2>
+        <div class="platforms-grid">
+          <!-- Facebook -->
+          <div class="platform-card" data-platform="facebook">
+            <div class="platform-icon">📘</div>
+            <h3>Facebook</h3>
+            <div class="platform-status" id="facebook-status">
+              <span class="status-indicator disconnected"></span>
+              <span class="status-text">Not Connected</span>
+            </div>
+            <button class="btn btn-connect" id="facebook-connect">Connect</button>
+          </div>
+
+          <!-- TikTok -->
+          <div class="platform-card" data-platform="tiktok">
+            <div class="platform-icon">🎵</div>
+            <h3>TikTok</h3>
+            <div class="platform-status" id="tiktok-status">
+              <span class="status-indicator disconnected"></span>
+              <span class="status-text">Not Connected</span>
+            </div>
+            <button class="btn btn-connect" id="tiktok-connect">Connect</button>
+          </div>
+
+          <!-- YouTube -->
+          <div class="platform-card" data-platform="youtube">
+            <div class="platform-icon">▶️</div>
+            <h3>YouTube</h3>
+            <div class="platform-status" id="youtube-status">
+              <span class="status-indicator disconnected"></span>
+              <span class="status-text">Not Connected</span>
+            </div>
+            <button class="btn btn-connect" id="youtube-connect">Connect</button>
+          </div>
+
+          <!-- Instagram -->
+          <div class="platform-card" data-platform="instagram">
+            <div class="platform-icon">📷</div>
+            <h3>Instagram</h3>
+            <div class="platform-status" id="instagram-status">
+              <span class="status-indicator disconnected"></span>
+              <span class="status-text">Not Connected</span>
+            </div>
+            <button class="btn btn-connect" id="instagram-connect">Connect</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Upload Section -->
+      <section class="section upload-section">
+        <h2>📤 Upload Video</h2>
+        
+        <div class="upload-container">
+          <!-- File Selection -->
+          <div class="file-selection">
+            <div class="drop-zone" id="drop-zone">
+              <div class="drop-zone-content">
+                <div class="upload-icon">🎬</div>
+                <p class="drop-zone-text">Drag & drop your video here</p>
+                <p class="drop-zone-subtext">or</p>
+                <button class="btn btn-primary" id="select-file-btn">Select Video File</button>
+                <p class="file-info">Supported: MP4, MOV • Max 100MB • Max 90 seconds</p>
+              </div>
+            </div>
+            <input type="file" id="file-input" accept="video/mp4,video/quicktime" style="display: none;">
+            
+            <div class="selected-file" id="selected-file" style="display: none;">
+              <div class="file-preview">
+                <video id="video-preview" controls></video>
+              </div>
+              <div class="file-details">
+                <p class="file-name" id="file-name"></p>
+                <button class="btn btn-secondary btn-small" id="change-file-btn">Change File</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metadata Form -->
+          <div class="metadata-form">
+            <div class="form-group">
+              <label for="video-title">Title / Caption</label>
+              <input type="text" id="video-title" placeholder="Enter your video title..." maxlength="100">
+            </div>
+
+            <div class="form-group">
+              <label for="video-description">Description (Optional)</label>
+              <textarea id="video-description" placeholder="Add a description..." rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="video-tags">Tags / Hashtags</label>
+              <input type="text" id="video-tags" placeholder="Enter tags separated by commas (e.g., travel, vlog, fun)">
+              <small>Tags will be formatted as hashtags for each platform</small>
+            </div>
+
+            <div class="form-group">
+              <label>Select Platforms to Post</label>
+              <div class="platform-checkboxes">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="post-facebook" disabled>
+                  <span>Facebook</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="post-tiktok" disabled>
+                  <span>TikTok</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="post-youtube" disabled>
+                  <span>YouTube</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" id="post-instagram" disabled>
+                  <span>Instagram</span>
+                </label>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-large" id="upload-btn" disabled>
+              🚀 Upload to Selected Platforms
+            </button>
+          </div>
+        </div>
+
+        <!-- Upload Progress -->
+        <div class="upload-progress" id="upload-progress" style="display: none;">
+          <h3>Upload Progress</h3>
+          <div class="progress-list" id="progress-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Notifications -->
+    <div class="notifications" id="notifications"></div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "name": "auto-short-poster",
+  "version": "1.0.0",
+  "description": "Desktop app for posting short videos to multiple social media platforms",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win"
+  },
+  "keywords": [
+    "social-media",
+    "video",
+    "posting",
+    "automation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.3",
+    "electron-store": "^8.2.0",
+    "googleapis": "^169.0.0",
+    "pkce-challenge": "^5.0.1"
+  },
+  "build": {
+    "appId": "com.autoshortposter.app",
+    "productName": "Social Media Auto-Poster",
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "devDependencies": {
+    "electron": "^39.2.7"
+  }
+}
